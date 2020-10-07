@@ -41,7 +41,7 @@ class SeelosPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-	$nbRocks = $this->result->getStatsFor($this->opponentSide)['rock'];
+	/*$nbRocks = $this->result->getStatsFor($this->opponentSide)['rock'];
 	$nbPapers = $this->result->getStatsFor($this->opponentSide)['paper'];
 	$nbScissors = $this->result->getStatsFor($this->opponentSide)['scissors'];
 	if ($nbRocks > $nbPapers and $nbRocks > $nbScissors){
@@ -52,7 +52,41 @@ class SeelosPlayer extends Player
 	}
 	else {
         	return parent::paperChoice();
+	}*/
+	$strat = 0;
+	if ($this->result->getNbRound() == 999){
+		if ($this->result->getStatsFor($this->mySide)['score'] <= $this->result->getStatsFor($this->opponentSide)['score']){
+			if($strat = 1){
+				$strat = 0;
+			}
+			else{
+				$strat = 1;
+			}
+		}
 	}
-	
+	if ($strat == 0)
+	{
+		if ($this->result->getLastChoiceFor($this->opponentSide) == parent::rockChoice()){
+			return parent::paperChoice();
+		}
+		elseif ($this->result->getLastChoiceFor($this->opponentSide) == parent::paperChoice()){
+			return parent::scissorsChoice();
+		}
+		elseif ($this->result->getLastChoiceFor($this->opponentSide) == parent::scissorsChoice()){
+			return parent::rockChoice();
+		}
+	}
+	elseif($strat == 1)
+	{
+		if ($this->result->getLastChoiceFor($this->opponentSide) == parent::rockChoice()){
+			return parent::rockChoice();
+		}
+		elseif ($this->result->getLastChoiceFor($this->opponentSide) == parent::paperChoice()){
+			return parent::paperChoice();
+		}
+		elseif ($this->result->getLastChoiceFor($this->opponentSide) == parent::scissorsChoice()){
+			return parent::scissorsChoice();
+		}
+	}	
     }
 };
