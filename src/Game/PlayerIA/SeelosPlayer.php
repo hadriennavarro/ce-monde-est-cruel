@@ -8,6 +8,10 @@ use Hackathon\Game\Result;
  * Class SeelosPlayers
  * @package Hackathon\PlayerIA
  * @author HADRIEN NAVARRO
+ * Ma première strat (qui est commentée) était une analyse de fréquence d'apparition des coups adverses et je jouais le contre du coup le plus joué en face
+ * J'ai ensuite changé de stratégie et suis passé à une stratégie plus simple qui consiste à jouer soit le coup contrant le coup précédent de l'adversaire,
+ * soit jouer le même pour contrer son anticipation
+ * Pour choisir entre les deux stratégies, tous les 5 coups je regarde les scores et si le mien est inférieur à celui de l'adversaire je change
  */
 class SeelosPlayer extends Player
 {
