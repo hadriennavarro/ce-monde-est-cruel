@@ -41,7 +41,7 @@ class SeelosPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-	/*$nbRocks = $this->result->getStatsFor($this->opponentSide)['rock'];
+	$nbRocks = $this->result->getStatsFor($this->opponentSide)['rock'];
 	$nbPapers = $this->result->getStatsFor($this->opponentSide)['paper'];
 	$nbScissors = $this->result->getStatsFor($this->opponentSide)['scissors'];
 	if ($nbRocks > $nbPapers and $nbRocks > $nbScissors){
@@ -52,15 +52,6 @@ class SeelosPlayer extends Player
 	}
 	else {
         	return parent::paperChoice();
-	}*/
-	if ($this->result->getNbRound() % 3 == 0){
-		return parent::rockChoice();
-	}
-	elseif ($this->result->getNbRound() % 3 == 1){
-		return parent::paperChoice();
-	}
-	elseif ($this->result->getNbRound() % 3 == 2){
-		return parent::scissorsChoice();
 	}
 	
     }
