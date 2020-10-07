@@ -18,7 +18,7 @@ abstract class Player
      */
     protected function getChoice()
     {
-        return $this->rockChoice();
+        return $this->paperChoice();
     }
 
     /**
