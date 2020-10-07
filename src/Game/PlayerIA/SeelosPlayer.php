@@ -54,7 +54,7 @@ class SeelosPlayer extends Player
         	return parent::paperChoice();
 	}*/
 	$strat = 0;
-	if ($this->result->getNbRound() == 999){
+	if ($this->result->getNbRound() == 50){
 		if ($this->result->getStatsFor($this->mySide)['score'] <= $this->result->getStatsFor($this->opponentSide)['score']){
 			if($strat = 1){
 				$strat = 0;
