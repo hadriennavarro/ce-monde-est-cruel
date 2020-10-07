@@ -41,8 +41,17 @@ class SeelosPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
-
-        return parent::paperChoice();
-
+	$nbRocks = $this->result->getStatsFor($this->opponentSide)['rock'];
+	$nbPapers = $this->result->getStatsFor($this->opponentSide)['paper'];
+	$nbScissors = $this->result->getStatsFor($this->opponentSide)['scissors'];
+	if ($nbRocks > $nbPapers and $nbRocks > $nbScissors){
+		return parent::paperChoice();
+	}
+	elseif ($nbPapers > $nbScissors){
+		return parent::scissorsChoice();
+	}
+	else {
+        	return parent::paperChoice();
+	}
     }
 };
